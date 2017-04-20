@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.tramitesAcad_TramitesAcademicaMavenApp-ejb_ejb_1.0-SNAPSHOTPU" transaction-type="JTA">
+    <jta-data-source>academicaRes2017</jta-data-source>
+    <class>com.tramitesAcad.datos.Caso</class>
+    <class>com.tramitesAcad.datos.CasoDetalle</class>
+    <class>com.tramitesAcad.datos.CasoDetalleRequisito</class>
+    <class>com.tramitesAcad.datos.CasoDetalleRequisitoAtestado</class>
+    <class>com.tramitesAcad.datos.Paso</class>
+    <class>com.tramitesAcad.datos.PasoRequisito</class>
+    <class>com.tramitesAcad.datos.Proceso</class>
+    <class>com.tramitesAcad.datos.ProcesoDetalle</class>
+    <class>com.tramitesAcad.datos.Requisito</class>
+    <class>com.tramitesAcad.datos.TipoPaso</class>
+    <class>com.tramitesAcad.datos.TipoRequisito</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties/>
+  </persistence-unit>
+</persistence>
