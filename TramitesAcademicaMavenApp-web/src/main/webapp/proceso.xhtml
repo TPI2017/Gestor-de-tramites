@@ -43,11 +43,12 @@
 
                                 <h:outputLabel value="Id:" for="idProceso"/>
                                 <p:inputText id="idProceso" value="#{frmProceso.pro.idProceso}" required="true" readonly="true"/>    
-                                <p:watermark value="Id autogenerado"
+                                
                                 <h:outputLabel value="Proceso:" for="nombreProceso"/>
                                 <p:inputText id="nombreProceso" value="#{frmProceso.pro.nombreProceso}" required="true"/>
                                 <p:watermark value="Nombre del proceso" for="nombreProceso"/>
                                 <p:message for="nombreProceso"/>
+                                
                                 <p:outputLabel value="Estado:"></p:outputLabel>
                                 <p:selectBooleanCheckbox  value="#{frmProceso.pro.estado}"/>
 
