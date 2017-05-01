@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">      <h:head>
+        <title>Proceso</title>
+    </h:head>
+    <h:body>
+           <h:form id="tabla">
+            <p:dataTable  value="#{frmProceso.modelo}"
+                                      id="tablappal"     
+                                 var="pr"
+                                 rows="5"
+                                 paginator="true"
+                                 lazy="true"
+                                 selectionMode="single"
+                                 selection="#{frmProceso.pro}">
+
+                            <p:column headerText="ID">
+                                <h:outputText value="#{pr.idProceso}"/>
+                            </p:column>
+                            <p:column headerText="NOMBRE">
+                                <h:outputText value="#{pr.nombreProceso}"/>
+                            </p:column>
+                            <p:column headerText="ESTADO">
+                                <h:outputText value="#{pr.estado ? 'ACTIVO':'INACTIVO'}"/>
+                            </p:column>
+                            <p:column headerText="DESCRIPCIÓN">
+                                <h:outputText value="#{pr.descripcion}"/>
+                            </p:column>                              
+                            <p:ajax update="tab:form" event="rowSelect"/>
+                        </p:dataTable>
+                        <br/>
+                        <br/>
+                    </h:form>
+                    <center>
+                        <p:tabView id="tab">
+                            <p:tab title="Generalidades">
+                                <h:form id="form">
+                            <h3><p:outputLabel value="Agregar/Editar"/></h3>
+                            <p:panelGrid columns="2">
+
+                                <h:outputLabel value="Id:" for="idProceso"/>
+                                <p:inputText id="idProceso" value="#{frmProceso.pro.idProceso}" required="true" readonly="true"/>    
+                                <p:watermark value="Id autogenerado"
+                                <h:outputLabel value="Proceso:" for="nombreProceso"/>
+                                <p:inputText id="nombreProceso" value="#{frmProceso.pro.nombreProceso}" required="true"/>
+                                <p:watermark value="Nombre del proceso" for="nombreProceso"/>
+                                <p:message for="nombreProceso"/>
+                                <p:outputLabel value="Estado:"></p:outputLabel>
+                                <p:selectBooleanCheckbox  value="#{frmProceso.pro.estado}"/>
+
+                                <h:outputLabel value="Descripción:" for="descripcion" />
+                                <p:inputTextarea rows="10" cols="25" id="descripcion"  value="#{frmProceso.pro.descripcion}" readonly = "false"/>
+
+                            </p:panelGrid>
+                            <br/>
+                            <p:commandButton action="#{frmProceso.Crear}" value="Agregar" update="form tabla:tablappal"/>
+                       
+                            <p:commandButton action="#{frmProceso.Modificar()}" value="Modificar" update="form tabla:tablappal"/>
+                           
+                            <p:commandButton value="Eliminar" actionListener="#{frmProceso.Eliminar()}" update="form tabla:tablappal"/>
+
+                            <p:commandButton action="#{frmProceso.Cancelar()}" value="Cancelar" update="form tabla:tablappal"/>
+                              
+                        </h:form>
+                            </p:tab>
+                            <p:tab title="Pasos del proceso">
+                                
+                            </p:tab>
+                        </p:tabView>
+                    
+                        <br/><br/>
+                        <p:link outcome="index" value="Index"/>
+                    </center>
+              
+    </h:body>
+</html>
+
